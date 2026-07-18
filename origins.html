@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Origins of the Kīngitanga</title>
+<style>
+:root{
+  --black:#080808;
+  --charcoal:#151515;
+  --charcoal-2:#202020;
+  --red:#a52025;
+  --red-dark:#661216;
+  --white:#f7f7f7;
+  --grey:#bebebe;
+  --line:#353535;
+  --green:#256f55;
+  --shadow:0 18px 42px rgba(0,0,0,.45);
+  --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#0a0a0a,#171717);
+  color:var(--white);
+}
+header{
+  min-height:72vh;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+  padding:50px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.56),rgba(0,0,0,.84)),
+    url('rise-hero.jpg') center/cover no-repeat,
+    linear-gradient(135deg,#181818,#4a1014);
+}
+header::after{
+  content:"";
+  position:absolute;
+  left:-10%;
+  bottom:-92px;
+  width:120%;
+  height:165px;
+  background:#101010;
+  transform:rotate(-3deg);
+}
+.hero{
+  position:relative;
+  z-index:2;
+  max-width:950px;
+  text-align:center;
+}
+.eyebrow{
+  display:inline-block;
+  padding:8px 17px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(3.4rem,8vw,6.4rem);
+  line-height:.95;
+  margin:.35em 0 .18em;
+}
+.subtitle{
+  max-width:790px;
+  margin:auto;
+  color:#e3e3e3;
+  font-size:1.14rem;
+  line-height:1.72;
+}
+.hero-buttons{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.button{
+  display:inline-block;
+  padding:14px 23px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:900;
+}
+.button.primary{background:var(--red);color:white}
+.button.secondary{
+  border:1px solid rgba(255,255,255,.45);
+  color:white;
+  background:rgba(255,255,255,.08);
+}
+main{
+  background:#101010;
+  padding:35px 20px 80px;
+}
+.wrap{width:min(1120px,100%);margin:auto}
+.intro-card,.story-card,.finish-card{
+  background:linear-gradient(145deg,#181818,#111);
+  border:1px solid #2f2f2f;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:clamp(26px,5vw,48px);
+  margin-bottom:34px;
+}
+h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.1rem,4vw,3.2rem);
+  margin:0 0 17px;
+}
+.intro-text{
+  max-width:880px;
+  color:#d0d0d0;
+  line-height:1.76;
+}
+.student-details{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:24px;
+}
+.student-details label{
+  display:grid;
+  gap:8px;
+  color:#fff;
+  font-weight:900;
+}
+.student-details input{
+  border:1px solid #3a3a3a;
+  border-radius:14px;
+  padding:13px 14px;
+  background:#0e0e0e;
+  color:white;
+  font:inherit;
+}
+.progress-note{
+  margin-top:22px;
+  padding:18px 20px;
+  border-left:6px solid var(--red);
+  border-radius:14px;
+  background:#211214;
+  color:#e4d9da;
+  line-height:1.65;
+}
+details{
+  margin:18px 0;
+  border:1px solid #303030;
+  border-radius:22px;
+  overflow:hidden;
+  background:#151515;
+  box-shadow:0 12px 28px rgba(0,0,0,.28);
+}
+summary{
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:23px 26px;
+  background:linear-gradient(135deg,var(--red-dark),#1a1a1a);
+  color:white;
+  font-size:1.22rem;
+  font-weight:900;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:white;
+  color:#191919;
+  flex:0 0 auto;
+}
+details[open] summary::after{content:"–"}
+.part{padding:28px}
+.story-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:24px;
+  align-items:start;
+}
+.story-text p{
+  margin:0 0 16px;
+  color:#efefef;
+  line-height:1.84;
+  font-size:1.06rem;
+}
+.story-image{
+  width:100%;
+  min-height:290px;
+  height:100%;
+  max-height:460px;
+  object-fit:cover;
+  border-radius:20px;
+  background:#2b2b2b;
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+}
+
+.activity-grid{display:grid;gap:20px;margin-top:26px}
+.activity{
+  border:1px solid #343434;
+  border-radius:19px;
+  overflow:hidden;
+  background:#111;
+}
+.activity-header{
+  padding:17px 21px;
+  background:linear-gradient(135deg,#7d191d,#2b1113);
+}
+.activity-header h3{margin:0 0 5px;font-size:1.28rem}
+.activity-header p{
+  margin:0;
+  color:#e0cfd0;
+  font-size:.94rem;
+  line-height:1.5;
+}
+.activity-body{
+  padding:21px;
+  color:#ddd;
+  line-height:1.65;
+}
+.mc-question,.question-block,.sort-item,.evidence-item,.match-item{
+  background:#191919;
+  border:1px solid #343434;
+  border-radius:14px;
+  padding:16px;
+  margin:11px 0;
+}
+.mc-question.correct,.sort-item.correct,.evidence-item.correct{
+  background:#173127;
+  border-color:#2d8b68;
+}
+.mc-question.incorrect,.sort-item.incorrect,.evidence-item.incorrect{
+  background:#3a1719;
+  border-color:#b73a3a;
+}
+.mc-question p{margin:0 0 12px;font-weight:900}
+.choice-buttons,.sort-buttons,.evidence-buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.choice-button,.sort-button,.evidence-button,.flip-card,.action-button{
+  border:0;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:900;
+}
+.choice-button,.sort-button,.evidence-button{
+  padding:10px 16px;
+  background:#303030;
+  color:white;
+}
+.choice-button.selected,.sort-button.selected,.evidence-button.selected{background:var(--red)}
+.feedback{min-height:22px;margin-top:10px;font-weight:900}
+.correct .feedback{color:#9fe0c5}
+.incorrect .feedback{color:#ffb3b3}
+.question-block label{
+  display:block;
+  margin-bottom:9px;
+  color:#fff;
+  font-weight:900;
+}
+.question-block textarea{
+  width:100%;
+  min-height:96px;
+  resize:vertical;
+  padding:12px;
+  border:1px solid #3b3b3b;
+  border-radius:12px;
+  background:#0e0e0e;
+  color:white;
+  font:inherit;
+}
+.memory-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.flip-card{
+  min-height:112px;
+  padding:15px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#631418,#1a1a1a);
+  color:white;
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+}
+.flip-card.revealed{
+  background:linear-gradient(135deg,#ececec,#bdbdbd);
+  color:#181818;
+}
+.vocab-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.vocab-card{
+  padding:16px;
+  border-radius:14px;
+  background:#191919;
+  border:1px solid #343434;
+}
+.vocab-card strong{
+  display:block;
+  color:white;
+  margin-bottom:5px;
+}
+.sort-grid,.evidence-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.quote{
+  margin:18px 0;
+  padding:18px 20px;
+  border-left:5px solid var(--red);
+  background:#191919;
+  border-radius:12px;
+  color:#efefef;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.08rem;
+  line-height:1.7;
+}
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+.action-button{
+  padding:13px 20px;
+  background:var(--red);
+  color:white;
+  box-shadow:0 10px 22px rgba(0,0,0,.25);
+}
+.action-button.grey{background:#353535}
+.overall-feedback{margin-top:18px;font-weight:900}
+footer{
+  background:#050505;
+  color:#999;
+  padding:28px 20px;
+  text-align:center;
+}
+@media(max-width:850px){
+  .story-grid,.student-details{grid-template-columns:1fr}
+  .memory-grid{grid-template-columns:1fr 1fr}
+  .sort-grid,.evidence-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .memory-grid,.vocab-grid{grid-template-columns:1fr}
+  .part{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<section class="hero">
+<div class="eyebrow">The Kīngitanga • Reading Unit</div>
+<h1>The Origins of the Kīngitanga</h1>
+<p class="subtitle">Why did Māori leaders believe a monarch was needed, and why did the idea of unity become so politically significant?</p>
+<div class="hero-buttons">
+<a class="button primary" href="#story">Begin Reading</a>
+<a class="button secondary" href="index.html">Back to Index</a>
+</div>
+</section>
+</header>
+<main>
+<div class="wrap">
+<section class="intro-card">
+<h2>Before You Begin</h2>
+<p class="intro-text">This page explores the political origins of the Kīngitanga. It examines two different systems of authority, the search for equal standing with the Crown, the attempt to unite Māori beyond individual iwi, and the reasons the movement was increasingly viewed as a challenge.</p>
+<div class="student-details">
+<label>Student name
+      <input id="studentName" placeholder="Type your name" type="text"/>
+</label>
+<label>Class
+      <input id="studentClass" placeholder="Type your class" type="text"/>
+</label>
+</div>
+<div class="progress-note"><strong>Key idea:</strong> The Kīngitanga was not simply the creation of a Māori version of the British monarchy. It was an attempt to build unity, representation and political authority in a rapidly changing country.</div>
+</section>
+<section class="story-card" id="story">
+<h2>Read the Story</h2>
+<details open="">
+<summary>Part 1: Two Peoples, Two Systems</summary>
+<div class="part">
+<div class="story-grid">
+<div class="story-text">
+<p>By the middle of the nineteenth century, British settlers in New Zealand were subjects of Queen Victoria. The Crown represented them through a single monarch and a colonial government that claimed authority across the country.</p>
+<p>Māori society was organised differently. Authority was held by many iwi, hapū and rangatira. Each community had its own leaders, relationships and responsibilities. There was no single person who spoke for Māori as a whole.</p>
+<p>For generations, that had not been a problem. Māori political life had never depended on one national ruler. However, as the colonial government became stronger, the difference between the two systems became increasingly important.</p>
+</div>
+<img alt="two-systems.jpg" class="story-image" src="two-systems.jpg"/>
+</div>
+<div class="activity-grid">
+<div class="activity">
+<div class="activity-header">
+<h3>Retrieval Cards</h3>
+<p>Flip each card to retrieve a key detail.</p>
+</div>
+<div class="activity-body">
+<div class="memory-grid">
+<button class="flip-card" data-back="Queen Victoria and the Crown" data-front="Who represented British settlers?">Who represented British settlers?</button>
+<button class="flip-card" data-back="Through iwi, hapū and rangatira" data-front="How was Māori authority organised?">How was Māori authority organised?</button>
+<button class="flip-card" data-back="No" data-front="Was there one Māori national ruler?">Was there one Māori national ruler?</button>
+<button class="flip-card" data-back="The colonial government was becoming stronger" data-front="Why did the difference matter?">Why did the difference matter?</button>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header">
+<h3>Best Explanation</h3>
+<p>Choose the statement that best explains the political difference.</p>
+</div>
+<div class="activity-body">
+<div class="mc-question" data-answer="authority" data-part="1" data-question="What was the main difference between the two systems?">
+<p>What was the main difference between the two systems?</p>
+<div class="choice-buttons">
+<button class="choice-button" data-choice="language">British settlers and Māori spoke different languages.</button>
+<button class="choice-button" data-choice="authority">British authority was represented through one Crown, while Māori authority was distributed among many iwi and leaders.</button>
+<button class="choice-button" data-choice="location">British settlers lived in towns while Māori lived in the countryside.</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary>Part 2: Searching for Equal Standing</summary>
+<div class="part">
+<div class="story-grid">
+<div class="story-text">
+<p>As land sales accelerated and colonial institutions expanded, some Māori leaders began to question whether separate iwi could negotiate effectively with a government that claimed to speak through one sovereign.</p>
+<p>The British population was represented by a queen. Māori, by contrast, were represented through many rangatira whose authority was respected within their own communities but did not form a single national voice.</p>
+<p>For some leaders, the answer was not to abandon tribal authority, but to create a shared figure who could stand alongside the Crown. A Māori monarch might give many iwi a stronger collective presence and a more equal political footing.</p>
+<p>This was not simply imitation. The proposal adapted the idea of monarchy to Māori purposes: unity, protection, representation and the preservation of authority.</p>
+</div>
+<img alt="searching-for-equality.jpg" class="story-image" src="searching-for-equality.jpg"/>
+</div>
+<div class="activity-grid">
+<div class="activity">
+<div class="activity-header">
+<h3>What Is the Author Arguing?</h3>
+<p>Select the strongest summary of this section.</p>
+</div>
+<div class="activity-body">
+<div class="mc-question" data-answer="standing" data-part="2" data-question="Why did some Māori leaders support the idea of a monarch?">
+<p>Why did some Māori leaders support the idea of a monarch?</p>
+<div class="choice-buttons">
+<button class="choice-button" data-choice="copy">They wanted to copy British customs exactly.</button>
+<button class="choice-button" data-choice="standing">They wanted a shared leader who could strengthen Māori representation and political standing.</button>
+<button class="choice-button" data-choice="replace">They wanted to remove all rangatira from leadership.</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header">
+<h3>Vocabulary in Context</h3>
+<p>Use these words to understand the political ideas in the text.</p>
+</div>
+<div class="activity-body">
+<div class="vocab-grid">
+<div class="vocab-card"><strong>Sovereign</strong>The highest recognised ruler or authority.</div>
+<div class="vocab-card"><strong>Representation</strong>Speaking or acting on behalf of others.</div>
+<div class="vocab-card"><strong>Collective</strong>Shared by a group rather than held by one person alone.</div>
+<div class="vocab-card"><strong>Political footing</strong>The position or standing from which a group can negotiate or exercise influence.</div>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header">
+<h3>Explain the Distinction</h3>
+<p>Show that you understand the difference between imitation and adaptation.</p>
+</div>
+<div class="activity-body">
+<div class="question-block">
+<label>Why does the author say the Kīngitanga was not simply copying Britain?</label>
+<textarea data-part="2" data-question="Why does the author say the Kīngitanga was not simply copying Britain?"></textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary>Part 3: The First Vision of a Māori Nation</summary>
+<div class="part">
+<div class="story-grid">
+<div class="story-text">
+<p>The most radical feature of the movement was not the title of king itself. It was the proposal that many iwi could act together within a broader political community.</p>
+<p>Māori identity had long been grounded in whakapapa, hapū and iwi. The Kīngitanga did not seek to erase these loyalties. Instead, it attempted to build a collective identity above them: a shared Māori political cause that could exist alongside tribal independence.</p>
+<p>In this sense, the movement represented one of the earliest serious attempts to imagine a Māori nation. The word <em>nation</em> must be used carefully, because supporters were not trying to create a modern state in exactly the European sense. They were developing a new structure of unity capable of coordinating many communities around common interests.</p>
+<p>That idea was politically significant. A population previously approached as separate tribes was beginning to organise as a connected people with shared aims, recognised leadership and a stronger collective voice.</p>
+</div>
+<img alt="maori-nation.jpg" class="story-image" src="maori-nation.jpg"/>
+</div>
+<div class="activity-grid">
+<div class="activity">
+<div class="activity-header">
+<h3>Find the Evidence</h3>
+<p>Select the sentence that best supports the statement.</p>
+</div>
+<div class="activity-body">
+<div class="evidence-item" data-answer="alongside" data-part="3" data-question="Which evidence best supports the idea that the movement united iwi without erasing them?">
+<strong>Which evidence best supports the idea that the movement united iwi without erasing them?</strong>
+<div class="evidence-buttons">
+<button class="evidence-button" data-choice="erase">“The most radical feature was the title of king itself.”</button>
+<button class="evidence-button" data-choice="alongside">“A shared Māori political cause that could exist alongside tribal independence.”</button>
+<button class="evidence-button" data-choice="europe">“Supporters wanted to create a European state.”</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header">
+<h3>Interpret the Word “Nation”</h3>
+<p>Explain the complexity of the author's language.</p>
+</div>
+<div class="activity-body">
+<div class="question-block">
+<label>Why does the author say the word “nation” must be used carefully?</label>
+<textarea data-part="3" data-question="Why does the author say the word nation must be used carefully?"></textarea>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header">
+<h3>Main Argument</h3>
+<p>Choose the idea that best captures the significance of the movement.</p>
+</div>
+<div class="activity-body">
+<div class="mc-question" data-answer="collective" data-part="3" data-question="What made the Kīngitanga politically significant?">
+<p>What made the Kīngitanga politically significant?</p>
+<div class="choice-buttons">
+<button class="choice-button" data-choice="ceremony">It created a new royal ceremony.</button>
+<button class="choice-button" data-choice="collective">It enabled many iwi to develop a broader collective political identity and voice.</button>
+<button class="choice-button" data-choice="uniform">It required every iwi to become the same.</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary>Part 4: A Competing Centre of Authority</summary>
+<div class="part">
+<div class="story-grid">
+<div class="story-text">
+<p>Supporters of the Kīngitanga generally understood the movement as defensive. They wanted to protect land, strengthen Māori decision-making and create a structure through which iwi could cooperate without surrendering their own mana.</p>
+<p>Colonial officials often interpreted the same development in a very different way. The Crown claimed sovereignty over New Zealand. A movement with its own monarch, territory, rules and political organisation could therefore appear to be an alternative centre of authority.</p>
+<p>The dispute was not simply about personalities. It raised constitutional questions: Who possessed the right to govern? Could Māori exercise collective authority within a colony ruled by the Crown? Could two systems of leadership coexist, or would one inevitably be treated as subordinate to the other?</p>
+<p>For supporters, the Kīngitanga represented protection and equality. For the colonial government, it increasingly appeared to challenge the legitimacy and reach of Crown rule.</p>
+</div>
+<img alt="competing-authority.jpg" class="story-image" src="competing-authority.jpg"/>
+</div>
+<div class="activity-grid">
+<div class="activity">
+<div class="activity-header">
+<h3>Perspective Sort</h3>
+<p>Decide which viewpoint each statement most closely reflects.</p>
+</div>
+<div class="activity-body">
+<div class="sort-grid">
+<div class="sort-item" data-answer="supporter" data-part="4" data-question="The movement protects land and Māori decision-making.">
+<strong>The movement protects land and Māori decision-making.</strong>
+<div class="sort-buttons">
+<button class="sort-button" data-choice="supporter">Kīngitanga supporter</button>
+<button class="sort-button" data-choice="official">Colonial official</button>
+</div>
+<div class="feedback"></div>
+</div>
+<div class="sort-item" data-answer="official" data-part="4" data-question="A second monarch could weaken the authority of the Crown.">
+<strong>A second monarch could weaken the authority of the Crown.</strong>
+<div class="sort-buttons">
+<button class="sort-button" data-choice="supporter">Kīngitanga supporter</button>
+<button class="sort-button" data-choice="official">Colonial official</button>
+</div>
+<div class="feedback"></div>
+</div>
+<div class="sort-item" data-answer="supporter" data-part="4" data-question="Many iwi should cooperate without losing their own mana.">
+<strong>Many iwi should cooperate without losing their own mana.</strong>
+<div class="sort-buttons">
+<button class="sort-button" data-choice="supporter">Kīngitanga supporter</button>
+<button class="sort-button" data-choice="official">Colonial official</button>
+</div>
+<div class="feedback"></div>
+</div>
+<div class="sort-item" data-answer="official" data-part="4" data-question="The Crown must remain the only recognised sovereign authority.">
+<strong>The Crown must remain the only recognised sovereign authority.</strong>
+<div class="sort-buttons">
+<button class="sort-button" data-choice="supporter">Kīngitanga supporter</button>
+<button class="sort-button" data-choice="official">Colonial official</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header">
+<h3>Historical Interpretation</h3>
+<p>Explain why the same movement could be understood in opposite ways.</p>
+</div>
+<div class="activity-body">
+<div class="question-block">
+<label>Why could supporters see the Kīngitanga as defensive while the government saw it as a challenge?</label>
+<textarea data-part="4" data-question="Why could supporters see the Kingitanga as defensive while the government saw it as a challenge?"></textarea>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header">
+<h3>Which Question Is Constitutional?</h3>
+<p>Select the question that most directly concerns political authority.</p>
+</div>
+<div class="activity-body">
+<div class="mc-question" data-answer="govern" data-part="4" data-question="Which question is constitutional?">
+<p>Which question is constitutional?</p>
+<div class="choice-buttons">
+<button class="choice-button" data-choice="travel">How far did people travel to meetings?</button>
+<button class="choice-button" data-choice="govern">Who possessed the legitimate right to govern?</button>
+<button class="choice-button" data-choice="clothing">What clothing did leaders wear?</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary>Part 5: A Country at a Turning Point</summary>
+<div class="part">
+<div class="story-grid">
+<div class="story-text">
+<p>By the early 1860s, the Kīngitanga had developed from a political proposal into one of the most important organised movements in New Zealand. It possessed recognised leadership, widespread support and the ability to coordinate action across iwi boundaries.</p>
+<p>Its supporters believed they were constructing a framework for equality, protection and collective self-determination. Colonial leaders increasingly believed they were confronting a rival political power.</p>
+<p>Governor George Grey viewed the movement with deep suspicion. Military preparations intensified, and the construction of the Great South Road made it easier to move troops and supplies towards Waikato.</p>
+<p>These preparations did not occur in a political vacuum. They reflected a growing conviction within the colonial government that the Kīngitanga could not be allowed to exercise independent authority. At the same time, many Māori interpreted government pressure as evidence that their land, leadership and autonomy were under threat.</p>
+<p>Both sides believed they were defending something essential. One defended the unity and authority of the Crown. The other defended land, mana and a new vision of Māori collective power.</p>
+<p>The disagreement had moved beyond debate. New Zealand was approaching war.</p>
+</div>
+<img alt="turning-point.jpg" class="story-image" src="turning-point.jpg"/>
+</div>
+<div class="activity-grid">
+<div class="activity">
+<div class="activity-header">
+<h3>Which Evidence Supports the Claim?</h3>
+<p>Choose the detail that best supports the statement.</p>
+</div>
+<div class="activity-body">
+<div class="evidence-grid">
+<div class="evidence-item" data-answer="road" data-part="5" data-question="Which evidence best supports the claim that the government was preparing for conflict?">
+<strong>Which evidence best supports the claim that the government was preparing for conflict?</strong>
+<div class="evidence-buttons">
+<button class="evidence-button" data-choice="meetings">Māori leaders held meetings.</button>
+<button class="evidence-button" data-choice="road">The Great South Road enabled troops and supplies to move towards Waikato.</button>
+<button class="evidence-button" data-choice="queen">British settlers were subjects of Queen Victoria.</button>
+</div>
+<div class="feedback"></div>
+</div>
+<div class="evidence-item" data-answer="coordination" data-part="5" data-question="Which evidence best supports the claim that the Kīngitanga had become politically powerful?">
+<strong>Which evidence best supports the claim that the Kīngitanga had become politically powerful?</strong>
+<div class="evidence-buttons">
+<button class="evidence-button" data-choice="title">It used the title of king.</button>
+<button class="evidence-button" data-choice="coordination">It could coordinate action across iwi boundaries.</button>
+<button class="evidence-button" data-choice="road">The government built a road.</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header">
+<h3>Author's Main Argument</h3>
+<p>Identify the central idea of the entire page.</p>
+</div>
+<div class="activity-body">
+<div class="mc-question" data-answer="political" data-part="5" data-question="What is the main argument of this page?">
+<p>What is the main argument of this page?</p>
+<div class="choice-buttons">
+<button class="choice-button" data-choice="person">The Kīngitanga was mainly the story of one important leader.</button>
+<button class="choice-button" data-choice="political">The Kīngitanga emerged as an attempt to create Māori unity and equal political authority, which the Crown increasingly treated as a challenge.</button>
+<button class="choice-button" data-choice="ceremony">The Kīngitanga was primarily a ceremonial tradition.</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header">
+<h3>Extended Historical Response</h3>
+<p>Use evidence from across the page.</p>
+</div>
+<div class="activity-body">
+<div class="question-block">
+<label>Explain why the creation of the Kīngitanga was both an attempt at equality and a challenge to colonial authority.</label>
+<textarea data-part="5" data-question="Explain why the creation of the Kingitanga was both an attempt at equality and a challenge to colonial authority."></textarea>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header">
+<h3>Looking Ahead</h3>
+<p>Predict the next stage of the story.</p>
+</div>
+<div class="activity-body">
+<div class="question-block">
+<label>Based on the final section, what do you predict will happen next, and which evidence supports your prediction?</label>
+<textarea data-part="5" data-question="What do you predict will happen next, and which evidence supports your prediction?"></textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+</section>
+<section class="finish-card">
+<h2>Finish and Export</h2>
+<p class="intro-text">Check the automatically marked questions, then download all responses as a CSV file.</p>
+<div class="actions">
+<button class="action-button" id="checkAll">Check My Score</button>
+<button class="action-button grey" id="downloadCsv">Download CSV</button>
+</div>
+<div class="overall-feedback" id="overallFeedback"></div>
+</section>
+</div>
+</main>
+<footer>The Origins of the Kīngitanga • Reading Unit • Manurewa Intermediate</footer>
+<script>
+const mcQuestions=[...document.querySelectorAll('.mc-question')];
+const sortItems=[...document.querySelectorAll('.sort-item')];
+const evidenceItems=[...document.querySelectorAll('.evidence-item')];
+const textareas=[...document.querySelectorAll('textarea')];
+
+function wireChoice(container, buttonSelector){
+  container.querySelectorAll(buttonSelector).forEach(button=>{
+    button.addEventListener('click',()=>{
+      container.querySelectorAll(buttonSelector).forEach(b=>b.classList.remove('selected'));
+      button.classList.add('selected');
+
+      const choice=button.dataset.choice;
+      const answer=container.dataset.answer;
+      container.dataset.choice=choice;
+      container.classList.remove('correct','incorrect');
+
+      const feedback=container.querySelector('.feedback');
+      if(choice===answer){
+        container.classList.add('correct');
+        feedback.textContent='Correct!';
+      }else{
+        container.classList.add('incorrect');
+        feedback.textContent='Not quite. Try again.';
+      }
+    });
+  });
+}
+
+mcQuestions.forEach(q=>wireChoice(q,'.choice-button'));
+sortItems.forEach(q=>wireChoice(q,'.sort-button'));
+evidenceItems.forEach(q=>wireChoice(q,'.evidence-button'));
+
+document.querySelectorAll('.flip-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const revealed=card.classList.toggle('revealed');
+    card.textContent=revealed ? card.dataset.back : card.dataset.front;
+  });
+});
+
+document.getElementById('checkAll').addEventListener('click',()=>{
+  const all=[...mcQuestions,...sortItems,...evidenceItems];
+  const answered=all.filter(q=>q.dataset.choice);
+  const correct=all.filter(q=>q.dataset.choice===q.dataset.answer);
+  const box=document.getElementById('overallFeedback');
+
+  box.textContent=answered.length<all.length
+    ? `You have answered ${answered.length} of ${all.length} automatically marked questions.`
+    : `Automatically marked score: ${correct.length} out of ${all.length}. Written responses are included in the CSV for teacher review.`;
+});
+
+function csvEscape(value){
+  const text=String(value??'');
+  return '"' + text.replaceAll('"','""') + '"';
+}
+
+document.getElementById('downloadCsv').addEventListener('click',()=>{
+  const name=document.getElementById('studentName').value.trim() || 'Not entered';
+  const studentClass=document.getElementById('studentClass').value.trim() || 'Not entered';
+
+  const rows=[[
+    'Student Name',
+    'Class',
+    'Part',
+    'Activity Type',
+    'Question',
+    'Student Answer',
+    'Correct Answer',
+    'Result'
+  ]];
+
+  mcQuestions.forEach(q=>{
+    const choice=q.dataset.choice || 'Not answered';
+    const result=choice==='Not answered'
+      ? 'Not answered'
+      : (choice===q.dataset.answer ? 'Correct' : 'Incorrect');
+
+    rows.push([
+      name,
+      studentClass,
+      q.dataset.part,
+      'Multiple Choice',
+      q.dataset.question,
+      choice,
+      q.dataset.answer,
+      result
+    ]);
+  });
+
+  sortItems.forEach(q=>{
+    const choice=q.dataset.choice || 'Not answered';
+    const result=choice==='Not answered'
+      ? 'Not answered'
+      : (choice===q.dataset.answer ? 'Correct' : 'Incorrect');
+
+    rows.push([
+      name,
+      studentClass,
+      q.dataset.part,
+      'Perspective Sort',
+      q.dataset.question,
+      choice,
+      q.dataset.answer,
+      result
+    ]);
+  });
+
+  evidenceItems.forEach(q=>{
+    const choice=q.dataset.choice || 'Not answered';
+    const result=choice==='Not answered'
+      ? 'Not answered'
+      : (choice===q.dataset.answer ? 'Correct' : 'Incorrect');
+
+    rows.push([
+      name,
+      studentClass,
+      q.dataset.part,
+      'Evidence Selection',
+      q.dataset.question,
+      choice,
+      q.dataset.answer,
+      result
+    ]);
+  });
+
+  textareas.forEach(area=>{
+    const answer=area.value.trim() || 'Not answered';
+    rows.push([
+      name,
+      studentClass,
+      area.dataset.part,
+      'Written Response',
+      area.dataset.question,
+      answer,
+      'Teacher assessed',
+      answer==='Not answered' ? 'Not answered' : 'Completed'
+    ]);
+  });
+
+  const csv=rows.map(row=>row.map(csvEscape).join(',')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+
+  a.href=url;
+  a.download=(name.replace(/[^a-z0-9]/gi,'_') || 'student') + '_origins_of_kingitanga.csv';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+});
+</script>
+</body>
+</html>

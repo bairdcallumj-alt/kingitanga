@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>What is the Kīngitanga?</title>
+<style>
+:root{
+  --black:#090909;
+  --char:#151515;
+  --char2:#202020;
+  --red:#a51f24;
+  --red-dark:#651216;
+  --red-soft:#3b1114;
+  --white:#f7f7f7;
+  --grey:#b9b9b9;
+  --grey2:#7d7d7d;
+  --line:#343434;
+  --green:#1f6f53;
+  --green-soft:#dff4e7;
+  --bad:#b73a3a;
+  --bad-soft:#fde3e3;
+  --shadow:0 18px 42px rgba(0,0,0,.45);
+  --radius:24px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at top left,rgba(165,31,36,.12),transparent 30%),
+    linear-gradient(135deg,#0b0b0b,#161616);
+  color:var(--white);
+}
+
+header{
+  min-height:72vh;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+  padding:50px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.82)),
+    url('what-is-kingitanga-hero.jpg') center/cover no-repeat,
+    linear-gradient(135deg,#191919,#481013);
+}
+
+header::after{
+  content:"";
+  position:absolute;
+  left:-10%;
+  bottom:-92px;
+  width:120%;
+  height:165px;
+  background:#101010;
+  transform:rotate(-3deg);
+}
+
+.hero{
+  position:relative;
+  z-index:2;
+  max-width:950px;
+  text-align:center;
+}
+
+.eyebrow{
+  display:inline-block;
+  padding:8px 17px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(3.4rem,8vw,6.5rem);
+  line-height:.95;
+  margin:.35em 0 .18em;
+}
+
+.subtitle{
+  max-width:780px;
+  margin:auto;
+  color:#e1e1e1;
+  font-size:1.12rem;
+  line-height:1.7;
+}
+
+.hero-buttons{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.button{
+  display:inline-block;
+  padding:14px 23px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:900;
+}
+
+.button.primary{background:var(--red);color:white}
+.button.secondary{border:1px solid rgba(255,255,255,.45);color:white;background:rgba(255,255,255,.08)}
+
+main{
+  background:#101010;
+  padding:35px 20px 80px;
+}
+
+.wrap{
+  width:min(1120px,100%);
+  margin:auto;
+}
+
+.intro-card,.story-card,.finish-card{
+  background:linear-gradient(145deg,#181818,#111);
+  border:1px solid #2f2f2f;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:clamp(26px,5vw,48px);
+  margin-bottom:34px;
+}
+
+h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.1rem,4vw,3.2rem);
+  margin:0 0 17px;
+}
+
+.intro-text{
+  max-width:860px;
+  color:#cfcfcf;
+  line-height:1.75;
+}
+
+.student-details{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:24px;
+}
+
+.student-details label{
+  display:grid;
+  gap:8px;
+  color:#fff;
+  font-weight:900;
+}
+
+.student-details input{
+  border:1px solid #3a3a3a;
+  border-radius:14px;
+  padding:13px 14px;
+  background:#0e0e0e;
+  color:white;
+  font:inherit;
+}
+
+.progress-note{
+  margin-top:22px;
+  padding:18px 20px;
+  border-left:6px solid var(--red);
+  border-radius:14px;
+  background:#211214;
+  color:#e4d9da;
+  line-height:1.65;
+}
+
+details{
+  margin:18px 0;
+  border:1px solid #303030;
+  border-radius:22px;
+  overflow:hidden;
+  background:#151515;
+  box-shadow:0 12px 28px rgba(0,0,0,.28);
+}
+
+summary{
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:23px 26px;
+  background:linear-gradient(135deg,var(--red-dark),#1a1a1a);
+  color:white;
+  font-size:1.22rem;
+  font-weight:900;
+}
+
+summary::-webkit-details-marker{display:none}
+
+summary::after{
+  content:"+";
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:white;
+  color:#191919;
+  flex:0 0 auto;
+}
+
+details[open] summary::after{content:"–"}
+
+.part{
+  padding:28px;
+}
+
+.level{
+  display:inline-block;
+  margin-bottom:18px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:#2b2b2b;
+  color:#ddd;
+  font-size:.82rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.story-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:24px;
+  align-items:start;
+}
+
+.story-text p{
+  margin:0 0 16px;
+  color:#efefef;
+  line-height:1.82;
+  font-size:1.06rem;
+}
+
+.story-image{
+  width:100%;
+  min-height:290px;
+  height:100%;
+  max-height:460px;
+  object-fit:cover;
+  border-radius:20px;
+  background:#2b2b2b;
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+}
+
+.image-placeholder{
+  min-height:290px;
+  border-radius:20px;
+  background:
+    linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.55)),
+    linear-gradient(135deg,#2c2c2c,#571519);
+  display:grid;
+  place-items:center;
+  padding:20px;
+  text-align:center;
+  color:#aaa;
+  font-weight:900;
+}
+
+.activity-grid{
+  display:grid;
+  gap:20px;
+  margin-top:26px;
+}
+
+.activity{
+  border:1px solid #343434;
+  border-radius:19px;
+  overflow:hidden;
+  background:#111;
+}
+
+.activity-header{
+  padding:17px 21px;
+  background:linear-gradient(135deg,#7d191d,#2b1113);
+}
+
+.activity-header h3{
+  margin:0 0 5px;
+  font-size:1.28rem;
+}
+
+.activity-header p{
+  margin:0;
+  color:#e0cfd0;
+  font-size:.94rem;
+  line-height:1.5;
+}
+
+.activity-body{
+  padding:21px;
+  color:#ddd;
+  line-height:1.65;
+}
+
+.tf-question,.mc-question,.question-block{
+  background:#191919;
+  border:1px solid #343434;
+  border-radius:14px;
+  padding:16px;
+  margin:11px 0;
+}
+
+.tf-question.correct,.mc-question.correct{
+  background:#173127;
+  border-color:#2d8b68;
+}
+
+.tf-question.incorrect,.mc-question.incorrect{
+  background:#3a1719;
+  border-color:#b73a3a;
+}
+
+.tf-question p,.mc-question p{
+  margin:0 0 12px;
+  font-weight:900;
+}
+
+.tf-buttons,.choice-buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.tf-button,.choice-button,.flip-card,.order-button,.action-button{
+  border:0;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.tf-button,.choice-button,.order-button{
+  padding:10px 16px;
+  background:#303030;
+  color:white;
+}
+
+.choice-button.selected,.order-button.selected{
+  background:var(--red);
+}
+
+.feedback{
+  min-height:22px;
+  margin-top:10px;
+  font-weight:900;
+}
+
+.correct .feedback{color:#9fe0c5}
+.incorrect .feedback{color:#ffb3b3}
+
+.question-block label{
+  display:block;
+  margin-bottom:9px;
+  color:#fff;
+  font-weight:900;
+}
+
+.question-block textarea{
+  width:100%;
+  min-height:92px;
+  resize:vertical;
+  padding:12px;
+  border:1px solid #3b3b3b;
+  border-radius:12px;
+  background:#0e0e0e;
+  color:white;
+  font:inherit;
+}
+
+.memory-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.flip-card{
+  min-height:112px;
+  padding:15px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#631418,#1a1a1a);
+  color:white;
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+}
+
+.flip-card.revealed{
+  background:linear-gradient(135deg,#ececec,#bdbdbd);
+  color:#181818;
+}
+
+.order-list{
+  display:grid;
+  gap:10px;
+}
+
+.order-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  border:1px solid #343434;
+  border-radius:13px;
+  background:#191919;
+}
+
+.order-number{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#2d2d2d;
+  font-weight:900;
+}
+
+.vocab-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.vocab-card{
+  padding:16px;
+  border-radius:14px;
+  background:#191919;
+  border:1px solid #343434;
+}
+
+.vocab-card strong{
+  display:block;
+  color:white;
+  margin-bottom:5px;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+
+.action-button{
+  padding:13px 20px;
+  background:var(--red);
+  color:white;
+  box-shadow:0 10px 22px rgba(0,0,0,.25);
+}
+
+.action-button.grey{
+  background:#353535;
+}
+
+.overall-feedback{
+  margin-top:18px;
+  font-weight:900;
+  color:#fff;
+}
+
+.source-note{
+  margin-top:26px;
+  color:#9b9b9b;
+  font-size:.9rem;
+  line-height:1.55;
+}
+
+footer{
+  background:#050505;
+  color:#999;
+  padding:28px 20px;
+  text-align:center;
+}
+
+@media(max-width:850px){
+  .story-grid,.student-details{grid-template-columns:1fr}
+  .memory-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:560px){
+  .memory-grid,.vocab-grid{grid-template-columns:1fr}
+  summary{font-size:1.03rem}
+  .part{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<section class="hero">
+<div class="eyebrow">The Kīngitanga • Reading Unit</div>
+<h1>What is the Kīngitanga?</h1>
+<p class="subtitle">Read the story of the Māori King Movement. The reading begins simply, then grows more complex as you explore leadership, unity, land and power.</p>
+<div class="hero-buttons">
+<a class="button primary" href="#story">Begin Reading</a>
+<a class="button secondary" href="index.html">Back to Index</a>
+</div>
+</section>
+</header>
+<main>
+<div class="wrap">
+<section class="intro-card">
+<h2>Before You Begin</h2>
+<p class="intro-text">Open each part in order. Complete the activities as you read. The questions begin with simple retrieval and gradually move towards inference, vocabulary, perspective and historical interpretation.</p>
+<div class="student-details">
+<label>Student name
+      <input id="studentName" placeholder="Type your name" type="text"/>
+</label>
+<label>Class
+      <input id="studentClass" placeholder="Type your class" type="text"/>
+</label>
+</div>
+<div class="progress-note">
+<strong>Reading challenge:</strong> Part 1 uses short, direct sentences. By Part 5, you will need to compare ideas, explain motives and use evidence from the text.
+  </div>
+</section>
+<section class="story-card" id="story">
+<h2>Read the Story</h2>
+<details open="">
+<summary>Part 1: Before There Was a Māori King</summary>
+<div class="part">
+<span class="level">Level 1 • Simple retrieval</span>
+<div class="story-grid">
+<div class="story-text">
+<p>Long ago, Māori did not have one king. Each iwi had its own rangatira. These leaders cared for their own people and land.</p>
+<p>Iwi worked together at times, but they were not ruled by one person. Leadership came from whakapapa, mana, courage and service.</p>
+<p>By the middle of the 1800s, life was changing quickly. More settlers were arriving, and Māori leaders were becoming worried about the future.</p>
+</div>
+<img alt="part1-kingitanga.jpg" class="story-image" src="part1-kingitanga.jpg"/>
+</div>
+<div class="activity-grid">
+<div class="activity">
+<div class="activity-header"><h3>True or False</h3><p>Choose the correct answer.</p></div>
+<div class="activity-body">
+<div class="tf-question" data-answer="false" data-part="1" data-question="Māori always had one king.">
+<p>Māori always had one king.</p>
+<div class="tf-buttons">
+<button class="tf-button" data-choice="true">True</button>
+<button class="tf-button" data-choice="false">False</button>
+</div>
+<div class="feedback"></div>
+</div>
+<div class="tf-question" data-answer="true" data-part="1" data-question="Each iwi had its own rangatira.">
+<p>Each iwi had its own rangatira.</p>
+<div class="tf-buttons">
+<button class="tf-button" data-choice="true">True</button>
+<button class="tf-button" data-choice="false">False</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header"><h3>Memory Flip</h3><p>Click each card to reveal the answer.</p></div>
+<div class="activity-body">
+<div class="memory-grid">
+<button class="flip-card" data-back="A rangatira" data-front="Who led each iwi?">Who led each iwi?</button>
+<button class="flip-card" data-back="No" data-front="Was there one king?">Was there one king?</button>
+<button class="flip-card" data-back="More settlers were arriving" data-front="What was changing?">What was changing?</button>
+<button class="flip-card" data-back="Their people and land" data-front="What did leaders protect?">What did leaders protect?</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary>Part 2: A New Idea</summary>
+<div class="part">
+<span class="level">Level 2 • Explanation and sequence</span>
+<div class="story-grid">
+<div class="story-text">
+<p>During the 1850s, some Māori leaders began discussing a new idea. They believed that one respected leader could help bring different iwi together.</p>
+<p>The movement was not created because Māori suddenly wanted to copy the British monarchy. Its supporters wanted unity. They hoped a shared leader could strengthen Māori authority and help protect land from being lost.</p>
+<p>Leaders travelled, met and debated. They did not agree immediately. Choosing one person to represent many iwi was a serious decision.</p>
+<p>Slowly, the idea of a Māori king began to grow.</p>
+</div>
+<img alt="part2-new-idea.jpg" class="story-image" src="part2-new-idea.jpg"/>
+</div>
+<div class="activity-grid">
+<div class="activity">
+<div class="activity-header"><h3>Multiple Choice</h3><p>Choose the strongest answer.</p></div>
+<div class="activity-body">
+<div class="mc-question" data-answer="unity" data-part="2" data-question="Why did some Māori leaders support the idea of one king?">
+<p>Why did some Māori leaders support the idea of one king?</p>
+<div class="choice-buttons">
+<button class="choice-button" data-choice="copy">To copy Britain</button>
+<button class="choice-button" data-choice="unity">To strengthen unity and protect land</button>
+<button class="choice-button" data-choice="war">To begin a war</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header"><h3>Put the Ideas in Order</h3><p>Select the statements from first to last.</p></div>
+<div class="activity-body">
+<div class="order-list" data-answer="change,discussion,decision,movement" data-part="2">
+<button class="order-button" data-choice="movement">The King Movement began to grow.</button>
+<button class="order-button" data-choice="decision">They searched for the right leader.</button>
+<button class="order-button" data-choice="change">Life was changing quickly.</button>
+<button class="order-button" data-choice="discussion">Leaders discussed greater unity.</button>
+</div>
+<div class="feedback order-feedback"></div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header"><h3>Short Answer</h3><p>Explain the main idea in your own words.</p></div>
+<div class="activity-body">
+<div class="question-block">
+<label>Why might unity have been important during a time of rapid change?</label>
+<textarea data-part="2" data-question="Why might unity have been important during a time of rapid change?"></textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary>Part 3: Choosing Pōtatau Te Wherowhero</summary>
+<div class="part">
+<span class="level">Level 3 • Vocabulary and inference</span>
+<div class="story-grid">
+<div class="story-text">
+<p>The leaders of the movement needed someone whose mana reached beyond a single community. They considered several important rangatira before turning to Pōtatau Te Wherowhero of Waikato.</p>
+<p>Pōtatau was respected for his whakapapa, experience and relationships with many iwi. He was not chosen because he demanded power. He was chosen because others believed he could carry a difficult responsibility.</p>
+<p>In 1858, Pōtatau became the first Māori King. His role was intended to unite people rather than erase the authority of individual iwi and rangatira.</p>
+<p>The Kīngitanga was therefore both a new institution and an expression of older Māori values: collective responsibility, protection of the people and leadership through service.</p>
+</div>
+<img alt="part3-potatau.jpg" class="story-image" src="part3-potatau.jpg"/>
+</div>
+<div class="activity-grid">
+<div class="activity">
+<div class="activity-header"><h3>Vocabulary</h3><p>Use the meanings to understand the text.</p></div>
+<div class="activity-body">
+<div class="vocab-grid">
+<div class="vocab-card"><strong>Mana</strong>Authority, prestige and influence.</div>
+<div class="vocab-card"><strong>Whakapapa</strong>Genealogy and connections between people.</div>
+<div class="vocab-card"><strong>Rangatira</strong>A leader or person of chiefly standing.</div>
+<div class="vocab-card"><strong>Kīngitanga</strong>The Māori King Movement.</div>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header"><h3>Inference</h3><p>Think beyond what is directly stated.</p></div>
+<div class="activity-body">
+<div class="question-block">
+<label>What does the text suggest about the kind of leader Pōtatau was?</label>
+<textarea data-part="3" data-question="What does the text suggest about the kind of leader Pōtatau was?"></textarea>
+</div>
+<div class="question-block">
+<label>Why might it have mattered that Pōtatau had relationships with many iwi?</label>
+<textarea data-part="3" data-question="Why might it have mattered that Pōtatau had relationships with many iwi?"></textarea>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header"><h3>Check the Detail</h3><p>Choose the best answer.</p></div>
+<div class="activity-body">
+<div class="mc-question" data-answer="trust" data-part="3" data-question="Why was Pōtatau selected?">
+<p>Why was Pōtatau selected?</p>
+<div class="choice-buttons">
+<button class="choice-button" data-choice="force">He forced people to choose him</button>
+<button class="choice-button" data-choice="trust">He was widely respected and trusted</button>
+<button class="choice-button" data-choice="wealth">He was the richest leader</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary>Part 4: More Than a Crown</summary>
+<div class="part">
+<span class="level">Level 4 • Perspective and author purpose</span>
+<div class="story-grid">
+<div class="story-text">
+<p>The Kīngitanga represented more than the crowning of one man. It offered a way for Māori communities to cooperate while retaining their own identities and leaders.</p>
+<p>Supporters saw the movement as a source of unity and protection. They wanted decisions about Māori land and communities to remain in Māori hands. The movement created rules, gatherings and shared symbols that strengthened this collective purpose.</p>
+<p>Many colonial officials viewed the same development differently. They feared that an independent Māori authority could weaken the power of the Crown. What supporters understood as protection and unity could therefore be described by opponents as resistance or rebellion.</p>
+<p>This difference in perspective became increasingly important. The conflict was not simply about whether there was a king. It was about who held authority, who controlled land and whose decisions would shape the future.</p>
+</div>
+<img alt="part4-movement.jpg" class="story-image" src="part4-movement.jpg"/>
+</div>
+<div class="activity-grid">
+<div class="activity">
+<div class="activity-header"><h3>Two Perspectives</h3><p>Compare how the same movement could be viewed differently.</p></div>
+<div class="activity-body">
+<div class="question-block">
+<label>How did supporters of the Kīngitanga view the movement?</label>
+<textarea data-part="4" data-question="How did supporters of the Kīngitanga view the movement?"></textarea>
+</div>
+<div class="question-block">
+<label>Why might colonial officials have viewed it as a threat?</label>
+<textarea data-part="4" data-question="Why might colonial officials have viewed it as a threat?"></textarea>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header"><h3>Writer's Purpose</h3><p>Think about why the author includes both viewpoints.</p></div>
+<div class="activity-body">
+<div class="mc-question" data-answer="complexity" data-part="4" data-question="Why does the author present both viewpoints?">
+<p>Why does the author present both viewpoints?</p>
+<div class="choice-buttons">
+<button class="choice-button" data-choice="confuse">To confuse the reader</button>
+<button class="choice-button" data-choice="complexity">To show that the conflict involved different understandings of authority</button>
+<button class="choice-button" data-choice="support">To prove every viewpoint was equally correct</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details>
+<summary>Part 5: Why the Kīngitanga Mattered</summary>
+<div class="part">
+<span class="level">Level 5 • Historical interpretation</span>
+<div class="story-grid">
+<div class="story-text">
+<p>By the early 1860s, tension between the colonial government and the Kīngitanga had become severe. Governor George Grey presented the movement as a challenge to Crown authority and prepared for military action in Waikato.</p>
+<p>In July 1863, British troops crossed the Mangatāwhiri Stream and entered Waikato. This began the invasion of Waikato. Grey claimed that military action was necessary to protect Auckland and secure the authority of the government.</p>
+<p>However, many historians and Māori accounts argue that the invasion was a choice rather than an unavoidable response. They point to earlier military preparations, the construction of the Great South Road and the absence of a Kīngitanga attack on Auckland before the invasion.</p>
+<p>The war caused deaths, displacement and the confiscation of vast areas of Māori land. Yet the Kīngitanga survived. It continued as a source of identity, unity and leadership through generations of pressure and change.</p>
+<p>Understanding the Kīngitanga therefore requires more than remembering dates. It requires asking how power was described, whose fears were believed, whose voices were ignored and how decisions made in the past continue to shape the present.</p>
+</div>
+<img alt="part5-legacy.jpg" class="story-image" src="part5-legacy.jpg"/>
+</div>
+<div class="activity-grid">
+<div class="activity">
+<div class="activity-header"><h3>Historical Thinking</h3><p>Use the evidence in the text.</p></div>
+<div class="activity-body">
+<div class="question-block">
+<label>What reasons did Grey give for invading Waikato?</label>
+<textarea data-part="5" data-question="What reasons did Grey give for invading Waikato?"></textarea>
+</div>
+<div class="question-block">
+<label>What evidence might support the argument that the invasion was a choice?</label>
+<textarea data-part="5" data-question="What evidence might support the argument that the invasion was a choice?"></textarea>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header"><h3>Theme and Legacy</h3><p>Explain the deeper meaning of the section.</p></div>
+<div class="activity-body">
+<div class="question-block">
+<label>Why does the survival of the Kīngitanga matter?</label>
+<textarea data-part="5" data-question="Why does the survival of the Kīngitanga matter?"></textarea>
+</div>
+<div class="question-block">
+<label>What does this history teach us about leadership, power and unity?</label>
+<textarea data-part="5" data-question="What does this history teach us about leadership, power and unity?"></textarea>
+</div>
+</div>
+</div>
+<div class="activity">
+<div class="activity-header"><h3>Final Check</h3><p>Select the best answer.</p></div>
+<div class="activity-body">
+<div class="mc-question" data-answer="interpretation" data-part="5" data-question="What is the main idea of the final part?">
+<p>What is the main idea of the final part?</p>
+<div class="choice-buttons">
+<button class="choice-button" data-choice="dates">History is mainly about remembering dates</button>
+<button class="choice-button" data-choice="interpretation">History requires us to examine power, evidence and different perspectives</button>
+<button class="choice-button" data-choice="simple">The conflict had one simple cause</button>
+</div>
+<div class="feedback"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details>
+</section>
+<section class="finish-card">
+<h2>Finish and Export</h2>
+<p class="intro-text">Check your automatically marked questions, then download all of your responses as a CSV file.</p>
+<div class="actions">
+<button class="action-button" id="checkAll">Check My Score</button>
+<button class="action-button grey" id="downloadCsv">Download CSV</button>
+</div>
+<div class="overall-feedback" id="overallFeedback"></div>
+<p class="source-note">
+    Suggested source base: Te Ara – <em>Kīngitanga: the Māori King movement</em>, alongside local historical material about the invasion of Waikato and its impact on South Auckland and Waikato Māori.
+  </p>
+</section>
+</div>
+</main>
+<footer>What is the Kīngitanga? • Reading Unit • Manurewa Intermediate</footer>
+<script>
+const tfQuestions=[...document.querySelectorAll('.tf-question')];
+const mcQuestions=[...document.querySelectorAll('.mc-question')];
+const textareas=[...document.querySelectorAll('textarea')];
+const orderLists=[...document.querySelectorAll('.order-list')];
+
+tfQuestions.forEach((question,index)=>{
+  question.dataset.id='TF'+(index+1);
+  question.querySelectorAll('.tf-button').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const choice=button.dataset.choice;
+      const answer=question.dataset.answer;
+      question.dataset.choice=choice;
+      question.classList.remove('correct','incorrect');
+      const feedback=question.querySelector('.feedback');
+
+      if(choice===answer){
+        question.classList.add('correct');
+        feedback.textContent='Correct!';
+      }else{
+        question.classList.add('incorrect');
+        feedback.textContent='Not quite. Try again.';
+      }
+    });
+  });
+});
+
+mcQuestions.forEach((question,index)=>{
+  question.dataset.id='MC'+(index+1);
+  question.querySelectorAll('.choice-button').forEach(button=>{
+    button.addEventListener('click',()=>{
+      question.querySelectorAll('.choice-button').forEach(b=>b.classList.remove('selected'));
+      button.classList.add('selected');
+
+      const choice=button.dataset.choice;
+      const answer=question.dataset.answer;
+      question.dataset.choice=choice;
+      question.classList.remove('correct','incorrect');
+
+      const feedback=question.querySelector('.feedback');
+
+      if(choice===answer){
+        question.classList.add('correct');
+        feedback.textContent='Correct!';
+      }else{
+        question.classList.add('incorrect');
+        feedback.textContent='Not quite. Try again.';
+      }
+    });
+  });
+});
+
+document.querySelectorAll('.flip-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const revealed=card.classList.toggle('revealed');
+    card.textContent=revealed?card.dataset.back:card.dataset.front;
+  });
+});
+
+orderLists.forEach(list=>{
+  const selected=[];
+  const feedback=list.nextElementSibling;
+
+  list.querySelectorAll('.order-button').forEach(button=>{
+    button.addEventListener('click',()=>{
+      if(button.classList.contains('selected')) return;
+
+      button.classList.add('selected');
+      selected.push(button.dataset.choice);
+      button.textContent=selected.length+'. '+button.textContent;
+
+      if(selected.length===list.querySelectorAll('.order-button').length){
+        const answer=list.dataset.answer.split(',');
+        const correct=selected.every((item,index)=>item===answer[index]);
+        list.dataset.choice=selected.join(',');
+        feedback.textContent=correct?'Correct order!':'Not quite. Refresh the page to try the ordering task again.';
+        feedback.style.color=correct?'#9fe0c5':'#ffb3b3';
+      }
+    });
+  });
+});
+
+document.getElementById('checkAll').addEventListener('click',()=>{
+  const allMarked=[...tfQuestions,...mcQuestions];
+  const answered=allMarked.filter(q=>q.dataset.choice);
+  const correct=allMarked.filter(q=>q.dataset.choice===q.dataset.answer);
+
+  const box=document.getElementById('overallFeedback');
+
+  if(answered.length<allMarked.length){
+    box.textContent=`You have answered ${answered.length} of ${allMarked.length} automatically marked questions.`;
+  }else{
+    box.textContent=`Automatically marked score: ${correct.length} out of ${allMarked.length}. Your written responses are included in the CSV for teacher review.`;
+  }
+});
+
+function csvEscape(value){
+  const text=String(value??'');
+  return '"'+text.replaceAll('"','""')+'"';
+}
+
+document.getElementById('downloadCsv').addEventListener('click',()=>{
+  const name=document.getElementById('studentName').value.trim()||'Not entered';
+  const studentClass=document.getElementById('studentClass').value.trim()||'Not entered';
+
+  const rows=[
+    ['Student Name','Class','Part','Activity Type','Question','Student Answer','Correct Answer','Result']
+  ];
+
+  tfQuestions.forEach(q=>{
+    const choice=q.dataset.choice||'Not answered';
+    const result=choice==='Not answered'?'Not answered':(choice===q.dataset.answer?'Correct':'Incorrect');
+    rows.push([name,studentClass,q.dataset.part,'True or False',q.dataset.question,choice,q.dataset.answer,result]);
+  });
+
+  mcQuestions.forEach(q=>{
+    const choice=q.dataset.choice||'Not answered';
+    const result=choice==='Not answered'?'Not answered':(choice===q.dataset.answer?'Correct':'Incorrect');
+    rows.push([name,studentClass,q.dataset.part,'Multiple Choice',q.dataset.question,choice,q.dataset.answer,result]);
+  });
+
+  orderLists.forEach((list,index)=>{
+    const choice=list.dataset.choice||'Not answered';
+    const result=choice==='Not answered'?'Not answered':(choice===list.dataset.answer?'Correct':'Incorrect');
+    rows.push([name,studentClass,list.dataset.part,'Ordering','Put the events in order',choice,list.dataset.answer,result]);
+  });
+
+  textareas.forEach((area,index)=>{
+    rows.push([
+      name,
+      studentClass,
+      area.dataset.part,
+      'Written Response',
+      area.dataset.question,
+      area.value.trim()||'Not answered',
+      'Teacher assessed',
+      area.value.trim()?'Completed':'Not answered'
+    ]);
+  });
+
+  const csv=rows.map(row=>row.map(csvEscape).join(',')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=(name.replace(/[^a-z0-9]/gi,'_')||'student')+'_what_is_kingitanga.csv';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+});
+</script>
+</body>
+</html>
